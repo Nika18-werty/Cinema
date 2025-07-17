@@ -1,24 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import MovieCard from './MovieCard';
 
-const movies = [
-  {
-    id: 1,
-    title: 'Дюна: Частина Друга',
-    rating: 8.5,
-    description: 'Продовження епічної саги.',
-    poster: 'https://via.placeholder.com/150'
-  },
-  {
-    id: 2,
-    title: 'Безсмертні',
-    rating: 7.2,
-    description: 'Новий фантастичний бойовик.',
-    poster: 'https://via.placeholder.com/150'
-  }
-];
+const API_KEY = '74ca29358c2c9e385c1d8f151c3b8b23';
 
 function MovieList() {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=uk-UA&page=1`)
+      .then(res => res.json())
+      .then(data => setMovies(data.results))
+      .catch(err => console.error(err));
+  }, []);
+
   return (
     <div>
       {movies.map(movie => (
