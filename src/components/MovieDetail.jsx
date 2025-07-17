@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import FavoritesContext from '../context/FavoritesContext';
 
 const movies = [
   {
@@ -9,7 +10,7 @@ const movies = [
     description: 'Продовження епічної саги.',
     poster: 'https://via.placeholder.com/150',
     year: 2024,
-    trailer: 'https://youtube.com', // поки тестове 
+    trailer: 'https://youtube.com',
     genre: 'Фантастика'
   },
   {
@@ -27,6 +28,7 @@ const movies = [
 function MovieDetail() {
   const { id } = useParams();
   const movie = movies.find(m => m.id === parseInt(id));
+  const { addToFavorites } = useContext(FavoritesContext);
 
   if (!movie) {
     return <div>Фільм не знайдено</div>;
@@ -41,6 +43,8 @@ function MovieDetail() {
       <p>Рейтинг: {movie.rating}</p>
       <p>{movie.description}</p>
       <a href={movie.trailer} target="_blank" rel="noopener noreferrer">Дивитись трейлер</a>
+      <br />
+      <button onClick={() => addToFavorites(movie)}>Додати у Обране</button>
       <br />
       <Link to="/">Назад до списку</Link>
     </div>
