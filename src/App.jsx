@@ -4,6 +4,7 @@ import MovieList from './components/MovieList';
 import MovieDetail from './components/MovieDetail';
 import Favorites from './components/Favorites';
 import FavoritesContext from './context/FavoritesContext';
+import NowPlaying from './components/NowPlaying'; 
 
 function App() {
   const [favorites, setFavorites] = useState([]);
@@ -19,11 +20,13 @@ function App() {
       <Router>
         <nav>
           <Link to="/">Головна</Link> | <Link to="/favorites">Обране ({favorites.length})</Link>
+          <Link to="/now-playing">Зараз у кіно</Link>
         </nav>
         <Routes>
           <Route path="/" element={<MovieList />} />
           <Route path="/movie/:id" element={<MovieDetail />} />
           <Route path="/favorites" element={<Favorites />} />
+          <Route path="/now-playing" element={<NowPlaying />} />
         </Routes>
       </Router>
     </FavoritesContext.Provider>
@@ -31,5 +34,7 @@ function App() {
 }
 
 export default App;
+
+
 
 
