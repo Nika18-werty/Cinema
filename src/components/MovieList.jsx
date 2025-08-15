@@ -14,12 +14,12 @@ function MovieList() {
   }, []);
 
   return (
-    <div>
-      {movies.map(movie => (
-        <MovieCard key={movie.id} movie={movie} />
-      ))}
-    </div>
-  );
+  <div className="movie-grid">
+    {movies.map(movie => (
+      <MovieCard key={movie.id} movie={movie} />
+    ))}
+  </div>
+);
 }
 
 export default MovieList;

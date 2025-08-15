@@ -42,9 +42,93 @@
 }
 
 
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.movie-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+}
+
+.movie-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.movie-card h2 {
+  font-size: 1.1rem;
+  margin: 10px;
+}
+
+.movie-card p {
+  font-size: 0.9rem;
+  margin: 10px;
+}
 
 
 
 
+.movie-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px;
+  background: white;
+  text-align: center;
+  width: 250px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 
+.movie-card img {
+  width: 100%;
+  border-radius: 10px;
+}
 
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.favorite-btn,
+.details-btn {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.favorite-btn.add {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.favorite-btn.remove {
+  background-color: #999;
+  color: white;
+}
+
+.details-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.favorite-btn:hover,
+.details-btn:hover {
+  opacity: 0.8;
+}

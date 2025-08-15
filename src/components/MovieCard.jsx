@@ -28,18 +28,24 @@ function MovieCard({ movie }) {
   };
 
   return (
-    <div style={{ border: '1px solid #ccc', margin: '10px', padding: '10px' }}>
+    <div className="movie-card">
       <img src={posterUrl} alt={movie.title} />
       <h2>{movie.title}</h2>
-      <p>Рейтинг: {movie.vote_average}</p>
+      <p>Рейтинг: {movie.vote_average?.toFixed(1)}</p>
       <p>{movie.overview}</p>
-      <button onClick={toggleFavorite}>
-        {isFavorite ? '💔 Видалити з обраного' : '❤️ Додати до обраного'}
-      </button>
-      <br />
-      <Link to={`/movie/${movie.id}`}>
-        <button>Детальніше</button>
-      </Link>
+
+      <div className="button-group">
+        <button
+          className={`favorite-btn ${isFavorite ? 'remove' : 'add'}`}
+          onClick={toggleFavorite}
+        >
+          {isFavorite ? '💔 Видалити з обраного' : '❤️ Додати до обраного'}
+        </button>
+
+        <Link to={`/movie/${movie.id}`}>
+          <button className="details-btn">Детальніше</button>
+        </Link>
+      </div>
     </div>
   );
 }
