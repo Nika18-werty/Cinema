@@ -5,6 +5,7 @@ import MovieDetail from './components/MovieDetail';
 import Favorites from './components/Favorites';
 import FavoritesContext from './context/FavoritesContext';
 import NowPlaying from './components/NowPlaying'; 
+import AdminPanel from "./pages/AdminPanel";
 
 function App() {
   const [favorites, setFavorites] = useState([]);
@@ -27,6 +28,7 @@ function App() {
           <Route path="/movie/:id" element={<MovieDetail />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/now-playing" element={<NowPlaying />} />
+          <Route path="/admin" element={<AdminPanel />} />
         </Routes>
       </Router>
     </FavoritesContext.Provider>
